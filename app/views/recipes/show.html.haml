@@ -1,0 +1,12 @@
+= link_to '<< Back', root_path
+%br
+.card
+  %img{ src: "#{entry.photo.url}" }
+  .card-body
+    %h5.card-title= entry.title
+    - if entry.try(:chef)
+      %strong.chef= "By #{entry.try(:chef)&.name}"
+    %p.card-text.description= entry.try(:description)
+    %ul
+      - Array.wrap(entry.try(:tags)).each do |tag|
+        %li.tags= tag.name

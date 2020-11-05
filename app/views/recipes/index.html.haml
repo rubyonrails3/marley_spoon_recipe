@@ -1,7 +1,8 @@
 %h1 Recipes
+
 - entries.each do |entry|
-  .media
-    %img.mr-3{ src: "#{entry.photo.url(width: 150)}" }
+  .media.my-3
+    %img.mr-3.border{ src: "#{entry.photo.url(width: 150)}" }
     .media-body
       %h4.mt-0
         = link_to entry.title, recipe_path(entry.id)

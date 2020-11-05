@@ -52,3 +52,5 @@ gem "contentful", "~> 2.15"
 gem "haml-rails", "~> 2.0"
 
 gem "capybara", "~> 3.33"
+
+gem "launchy", "~> 2.5"
