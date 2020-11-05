@@ -30,6 +30,16 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+VCR.configure do |config|
+  # config.allow_http_connections_when_no_cassette = false
+  config.cassette_library_dir = File.expand_path('cassettes', __dir__)
+  config.hook_into :webmock
+  config.ignore_request { ENV['DISABLE_VCR'] }
+  config.ignore_localhost = true
+  config.default_cassette_options = {
+    record: :new_episodes
+  }
+end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

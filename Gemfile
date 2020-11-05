@@ -42,15 +42,15 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :test do
 
-gem "rspec-rails", "~> 4.0"
+  gem "rspec-rails", "~> 4.0"
+  gem "capybara", "~> 3.33"
+  gem "launchy", "~> 2.5"
+  gem "vcr", "~> 6.0"
+  gem "webmock", "~> 3.9"
+end
 
 gem "contentful", "~> 2.15"
-
 gem "haml-rails", "~> 2.0"
 
-gem "capybara", "~> 3.33"
-
-gem "launchy", "~> 2.5"
